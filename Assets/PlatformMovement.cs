@@ -6,8 +6,11 @@ public class PlatformMovement : MonoBehaviour
 {
     public float xSpeed;
     public bool toRight;
-    //public GameObject prefab1;
-   // public GameObject prefab2;
+    public GameObject prefab1;
+    public GameObject prefab2;
+    public GameObject baseDer;
+    public GameObject baseIzq;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +31,18 @@ public class PlatformMovement : MonoBehaviour
         if (transform.position.x > 3)
         {
             toRight = false;
-            //Instantiate(prefab1);
+            GameObject clon;
+            clon = Instantiate(prefab1);
+            clon.transform.position = baseDer.transform.position + Vector3.up;
+            Destroy(clon, 5);
         }
         if (transform.position.x < -3)
         {
             toRight = true;
-           //Instantiate(prefab2);
+            GameObject clon;
+            clon =Instantiate(prefab2);
+            clon.transform.position = baseIzq.transform.position + Vector3.up;
+            Destroy(clon, 5);
         }
     }
 }
